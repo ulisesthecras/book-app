@@ -10,9 +10,8 @@ function App() {
   const [books, setBooks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Carga inicial de datos (GET)
   useEffect(() => {
-    fetch('http://localhost:3001/books') // Asumiendo que tu json-server corre en el puerto 3001 o 3000
+    fetch('http://localhost:3001/books')
       .then(response => response.json())
       .then(data => setBooks(data))
       .catch(error => console.error("Error fetching books:", error));
