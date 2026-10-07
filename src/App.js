@@ -32,7 +32,7 @@ function App() {
       <main>
         <ProgressBar books={books} />
         <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-        <AddBookForm /> {/* Plantilla para el próximo paso */}
+        <AddBookForm />
         <BookList books={filteredBooks} />
       </main>
     </div>
