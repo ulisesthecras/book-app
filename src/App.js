@@ -33,6 +33,21 @@ function App() {
       .catch(error => console.error("Error adding book:", error));
   };
 
+  const handleStatusUpdate = (bookId, newStatus) => {
+    fetch(`http://localhost:3001/books/${bookId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ status: newStatus })
+    })
+      .then(response => response.json())
+      .then(updatedBook => {
+        setBooks(books.map(book => (book.id === bookId ? updatedBook : book)));
+      })
+      .catch(error => console.error("Error updating status:", error));
+  };
+
   const filteredBooks = books.filter(book => {
     const term = searchTerm.toLowerCase();
     return (
@@ -55,7 +70,7 @@ function App() {
           />
         )}
 
-        <BookList books={filteredBooks} />
+        <BookList books={filteredBooks} onStatusUpdate={handleStatusUpdate} />
       </main>
     </div>
   );
