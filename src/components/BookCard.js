@@ -7,7 +7,6 @@ const BookCard = ({ book }) => {
       <h3>{book.title}</h3>
       <p>Autor: {book.author}</p>
       <p>Estado: {book.status}</p>
-      {/* El botón de actualizar (PATCH) se implementará en el próximo paso */}
     </div>
   );
 };
